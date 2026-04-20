@@ -82,11 +82,11 @@ h1 {
     font-size: 18px;
 }
 
-.webcam-section {
+.upload-section {
     margin-bottom: 40px;
 }
 
-.webcam-frame {
+.image-frame {
     width: 300px;
     height: 300px;
     margin: 0 auto 20px;
@@ -98,20 +98,16 @@ h1 {
     align-items: center;
     border: 5px solid var(--btn-bg);
     box-shadow: 0 0 20px var(--shadow-color);
+    position: relative;
 }
 
-.webcam-frame canvas {
+.image-frame img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.placeholder {
-    padding: 20px;
-    color: var(--subtitle-color);
-}
-
-#start-btn {
+#upload-btn {
     background-color: var(--btn-bg);
     color: white;
     border: none;
