@@ -1,6 +1,29 @@
 const generateBtn = document.getElementById('generate-btn');
+const themeBtn = document.getElementById('theme-btn');
 const numberDivs = document.querySelectorAll('.number');
 
+// Initialize Theme
+const currentTheme = localStorage.getItem('theme');
+if (currentTheme === 'dark') {
+    document.body.classList.add('dark-theme');
+    themeBtn.textContent = '☀️ Light Mode';
+}
+
+// Theme Toggle Logic
+themeBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-theme');
+    
+    let theme = 'light';
+    if (document.body.classList.contains('dark-theme')) {
+        theme = 'dark';
+        themeBtn.textContent = '☀️ Light Mode';
+    } else {
+        themeBtn.textContent = '🌙 Dark Mode';
+    }
+    localStorage.setItem('theme', theme);
+});
+
+// Lotto Logic
 generateBtn.addEventListener('click', () => {
     const lottoNumbers = generateLottoNumbers();
     displayNumbers(lottoNumbers);
@@ -12,7 +35,7 @@ function generateLottoNumbers() {
         const randomNumber = Math.floor(Math.random() * 45) + 1;
         numbers.add(randomNumber);
     }
-    return Array.from(numbers);
+    return Array.from(numbers).sort((a, b) => a - b);
 }
 
 function displayNumber(div, number) {

@@ -1,24 +1,62 @@
+:root {
+    --bg-color: #f0f2f5;
+    --container-bg: #ffffff;
+    --text-color: #333;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --btn-bg: #4a90e2;
+    --btn-hover: #357abd;
+}
+
+body.dark-theme {
+    --bg-color: #18191a;
+    --container-bg: #242526;
+    --text-color: #e4e6eb;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --btn-bg: #3a3b3c;
+    --btn-hover: #4e4f50;
+}
+
 body {
     font-family: 'Helvetica Neue', sans-serif;
-    background-color: #f0f2f5;
+    background-color: var(--bg-color);
+    color: var(--text-color);
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+#theme-btn {
+    background-color: var(--container-bg);
+    color: var(--text-color);
+    border: 1px solid var(--text-color);
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
 }
 
 .container {
     text-align: center;
-    background-color: #ffffff;
+    background-color: var(--container-bg);
     padding: 40px;
     border-radius: 16px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 20px var(--shadow-color);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 h1 {
     margin-bottom: 30px;
-    color: #333;
     font-size: 28px;
 }
 
@@ -48,7 +86,7 @@ h1 {
 }
 
 #generate-btn {
-    background-color: #4a90e2;
+    background-color: var(--btn-bg);
     color: #ffffff;
     border: none;
     padding: 15px 30px;
@@ -59,5 +97,5 @@ h1 {
 }
 
 #generate-btn:hover {
-    background-color: #357abd;
+    background-color: var(--btn-hover);
 }
