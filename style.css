@@ -1,37 +1,42 @@
 :root {
-    --bg-color: #f0f2f5;
+    --bg-color: #f8f9fa;
     --container-bg: #ffffff;
-    --text-color: #333;
-    --shadow-color: rgba(0, 0, 0, 0.1);
-    --btn-bg: #4a90e2;
-    --btn-hover: #357abd;
-    --input-bg: #f9f9f9;
-    --input-border: #ddd;
+    --text-color: #212529;
+    --subtitle-color: #6c757d;
+    --shadow-color: rgba(0, 0, 0, 0.08);
+    --btn-bg: #007bff;
+    --btn-hover: #0056b3;
+    --input-bg: #fdfdfd;
+    --input-border: #dee2e6;
+    --progress-bg: #e9ecef;
+    --dog-color: #ffca28;
+    --cat-color: #42a5f5;
 }
 
 body.dark-theme {
-    --bg-color: #18191a;
-    --container-bg: #242526;
-    --text-color: #e4e6eb;
-    --shadow-color: rgba(0, 0, 0, 0.3);
-    --btn-bg: #3a3b3c;
-    --btn-hover: #4e4f50;
-    --input-bg: #3a3b3c;
-    --input-border: #4e4f50;
+    --bg-color: #121212;
+    --container-bg: #1e1e1e;
+    --text-color: #f8f9fa;
+    --subtitle-color: #adb5bd;
+    --shadow-color: rgba(0, 0, 0, 0.4);
+    --btn-bg: #375a7f;
+    --btn-hover: #2b4764;
+    --input-bg: #2a2a2a;
+    --input-border: #444;
+    --progress-bg: #333;
 }
 
 body {
-    font-family: 'Helvetica Neue', sans-serif;
+    font-family: 'Nanum Gothic', sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     min-height: 100vh;
     margin: 0;
     transition: background-color 0.3s ease, color 0.3s ease;
-    padding: 20px 0;
+    padding: 40px 20px;
 }
 
 .theme-toggle {
@@ -43,7 +48,7 @@ body {
 #theme-btn {
     background-color: var(--container-bg);
     color: var(--text-color);
-    border: 1px solid var(--text-color);
+    border: 1px solid var(--input-border);
     padding: 8px 16px;
     border-radius: 20px;
     cursor: pointer;
@@ -55,64 +60,124 @@ body {
     text-align: center;
     background-color: var(--container-bg);
     padding: 40px;
-    border-radius: 16px;
-    box-shadow: 0 10px 20px var(--shadow-color);
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 24px;
+    box-shadow: 0 10px 30px var(--shadow-color);
     width: 100%;
-    max-width: 500px;
+    max-width: 600px;
+    box-sizing: border-box;
+}
+
+header {
+    margin-bottom: 40px;
 }
 
 h1 {
-    margin-bottom: 30px;
-    font-size: 28px;
+    font-size: 32px;
+    margin-bottom: 10px;
+    font-weight: 700;
 }
 
-.lotto-numbers {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 30px;
+.subtitle {
+    color: var(--subtitle-color);
+    font-size: 18px;
 }
 
-.number {
-    width: 50px;
-    height: 50px;
-    background-color: #4a90e2;
-    color: #ffffff;
+.webcam-section {
+    margin-bottom: 40px;
+}
+
+.webcam-frame {
+    width: 300px;
+    height: 300px;
+    margin: 0 auto 20px;
     border-radius: 50%;
+    overflow: hidden;
+    background-color: var(--progress-bg);
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 24px;
-    font-weight: bold;
-    margin: 0 5px;
-    transition: transform 0.3s ease;
+    border: 5px solid var(--btn-bg);
+    box-shadow: 0 0 20px var(--shadow-color);
 }
 
-.number:hover {
-    transform: scale(1.1);
+.webcam-frame canvas {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-#generate-btn {
+.placeholder {
+    padding: 20px;
+    color: var(--subtitle-color);
+}
+
+#start-btn {
     background-color: var(--btn-bg);
-    color: #ffffff;
+    color: white;
     border: none;
-    padding: 15px 30px;
+    padding: 15px 40px;
     font-size: 18px;
-    border-radius: 8px;
+    font-weight: bold;
+    border-radius: 50px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-bottom: 10px;
+    transition: transform 0.2s ease, background-color 0.3s ease;
 }
 
-#generate-btn:hover {
+#start-btn:hover {
     background-color: var(--btn-hover);
+    transform: scale(1.05);
+}
+
+.result-section {
+    margin-top: 30px;
+    text-align: left;
+    animation: fadeIn 0.5s ease;
+}
+
+.hidden {
+    display: none;
+}
+
+.result-item {
+    margin-bottom: 20px;
+}
+
+.label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 20px;
+    background-color: var(--progress-bg);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+
+.progress {
+    height: 100%;
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+#dog-bar { background-color: var(--dog-color); }
+#cat-bar { background-color: var(--cat-color); }
+
+.probability {
+    font-size: 14px;
+    color: var(--subtitle-color);
+    float: right;
 }
 
 .divider {
     border: 0;
     height: 1px;
     background: var(--input-border);
-    margin: 30px 0;
+    margin: 40px 0;
 }
 
 .contact-section h2 {
@@ -133,12 +198,6 @@ h1 {
     color: var(--text-color);
     font-size: 14px;
     box-sizing: border-box;
-    transition: border-color 0.3s ease;
-}
-
-.form-group input:focus, .form-group textarea:focus {
-    outline: none;
-    border-color: #4a90e2;
 }
 
 .form-group textarea {
@@ -148,32 +207,38 @@ h1 {
 
 #submit-btn {
     width: 100%;
-    background-color: #4a90e2;
+    background-color: var(--btn-bg);
     color: white;
     border: none;
     padding: 12px;
     border-radius: 8px;
     cursor: pointer;
     font-size: 16px;
-    transition: background-color 0.3s ease;
-}
-
-#submit-btn:hover {
-    background-color: #357abd;
+    font-weight: bold;
 }
 
 .disqus-container {
     width: 100%;
-    max-width: 500px;
+    max-width: 600px;
     margin-top: 40px;
     background-color: var(--container-bg);
     padding: 20px;
-    border-radius: 16px;
-    box-shadow: 0 10px 20px var(--shadow-color);
+    border-radius: 24px;
+    box-shadow: 0 10px 30px var(--shadow-color);
     box-sizing: border-box;
-    transition: background-color 0.3s ease;
 }
 
-#disqus_thread {
-    width: 100%;
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 20px;
+    }
+    .webcam-frame {
+        width: 250px;
+        height: 250px;
+    }
 }

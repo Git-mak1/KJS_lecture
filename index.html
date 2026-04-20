@@ -1,26 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lotto Number Generator</title>
+    <title>동물상 테스트 - 나를 닮은 동물은?</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="theme-toggle">
         <button id="theme-btn">🌙 Dark Mode</button>
     </div>
     <div class="container">
-        <h1>Lotto Number Generator</h1>
-        <div class="lotto-numbers">
-            <div class="number"></div>
-            <div class="number"></div>
-            <div class="number"></div>
-            <div class="number"></div>
-            <div class="number"></div>
-            <div class="number"></div>
+        <header>
+            <h1>동물상 테스트</h1>
+            <p class="subtitle">AI가 분석하는 나의 얼굴상</p>
+        </header>
+
+        <div class="webcam-section">
+            <div id="webcam-container" class="webcam-frame">
+                <div class="placeholder">카메라가 이곳에 표시됩니다</div>
+            </div>
+            <button id="start-btn">테스트 시작하기</button>
         </div>
-        <button id="generate-btn">Generate Numbers</button>
+
+        <div id="result-container" class="result-section hidden">
+            <!-- Results will be dynamically injected here -->
+        </div>
 
         <hr class="divider">
 
@@ -58,6 +64,9 @@
         <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </div>
 
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
     <script src="main.js"></script>
     <script id="dsq-count-scr" src="//kjs-123.disqus.com/count.js" async></script>
 </body>
