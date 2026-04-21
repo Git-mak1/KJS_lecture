@@ -9,11 +9,12 @@
     --input-bg: #fdfdfd;
     --input-border: #dee2e6;
     --progress-bg: #e9ecef;
+    --nav-bg: rgba(255, 255, 255, 0.8);
     --dog-color: #ffca28;
     --cat-color: #42a5f5;
-}
+    }
 
-body.dark-theme {
+    body.dark-theme {
     --bg-color: #121212;
     --container-bg: #1e1e1e;
     --text-color: #f8f9fa;
@@ -24,9 +25,10 @@ body.dark-theme {
     --input-bg: #2a2a2a;
     --input-border: #444;
     --progress-bg: #333;
-}
+    --nav-bg: rgba(30, 30, 30, 0.8);
+    }
 
-body {
+    body {
     font-family: 'Nanum Gothic', sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
@@ -36,14 +38,177 @@ body {
     min-height: 100vh;
     margin: 0;
     transition: background-color 0.3s ease, color 0.3s ease;
-    padding: 40px 20px;
-}
+    padding-top: 80px; /* Space for fixed navbar */
+    }
 
-.theme-toggle {
+    /* Navbar */
+    .navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 70px;
+    background-color: var(--nav-bg);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    box-shadow: 0 2px 10px var(--shadow-color);
+    }
+
+    .nav-container {
+    width: 100%;
+    max-width: 1000px;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    }
+
+    .nav-logo {
+    font-size: 20px;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--text-color);
+    }
+
+    .nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+    }
+
+    .nav-menu a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 400;
+    transition: color 0.3s;
+    }
+
+    .nav-menu a:hover {
+    color: var(--btn-bg);
+    }
+
+    .theme-toggle {
+    margin-left: 20px;
+    }
+
+    /* Info Containers */
+    .info-container {
+    width: 100%;
+    max-width: 800px;
+    margin-top: 40px;
+    background-color: var(--container-bg);
+    padding: 40px;
+    border-radius: 24px;
+    box-shadow: 0 10px 30px var(--shadow-color);
+    text-align: left;
+    box-sizing: border-box;
+    }
+
+    .info-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    border-left: 5px solid var(--btn-bg);
+    padding-left: 15px;
+    }
+
+    .info-container p {
+    line-height: 1.8;
+    color: var(--subtitle-color);
+    }
+
+    .trait-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+    }
+
+    .trait-card {
+    background-color: var(--input-bg);
+    padding: 20px;
+    border-radius: 16px;
+    border: 1px solid var(--input-border);
+    }
+
+    .trait-card h3 {
+    margin-top: 0;
+    font-size: 18px;
+    color: var(--text-color);
+    }
+
+    /* Footer */
+    .footer {
+    width: 100%;
+    margin-top: 60px;
+    padding: 40px 20px;
+    background-color: var(--container-bg);
+    border-top: 1px solid var(--input-border);
+    text-align: center;
+    }
+
+    .footer-links {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    }
+
+    .footer-links a {
+    color: var(--subtitle-color);
+    text-decoration: none;
+    font-size: 14px;
+    }
+
+    /* Modal */
+    .modal {
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+
+    .modal-content {
+    background-color: var(--container-bg);
+    padding: 30px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    .close-btn {
     position: absolute;
-    top: 20px;
     right: 20px;
-}
+    top: 20px;
+    font-size: 28px;
+    cursor: pointer;
+    }
+
+    .modal-body h3 {
+    margin-top: 25px;
+    }
+
+    @media (max-width: 768px) {
+    .nav-menu {
+        display: none; /* Simple approach: hide menu on mobile for now or use hamburger */
+    }
+    .info-container {
+        padding: 25px;
+    }
+    }
 
 #theme-btn {
     background-color: var(--container-bg);

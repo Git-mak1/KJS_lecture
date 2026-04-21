@@ -9,6 +9,40 @@ const placeholder = document.getElementById('placeholder');
 const themeBtn = document.getElementById('theme-btn');
 const resultContainer = document.getElementById('result-container');
 
+// Privacy Policy Modal
+const privacyLink = document.getElementById('privacy-link');
+const privacyModal = document.getElementById('privacy-modal');
+const closeBtn = document.querySelector('.close-btn');
+
+privacyLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    privacyModal.classList.remove('hidden');
+});
+
+closeBtn.addEventListener('click', () => {
+    privacyModal.classList.add('hidden');
+});
+
+window.addEventListener('click', (e) => {
+    if (e.target === privacyModal) {
+        privacyModal.classList.add('hidden');
+    }
+});
+
+// Smooth Scroll for Navigation
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            window.scrollTo({
+                top: target.offsetTop - 80,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+
 // Initialize Theme
 const currentTheme = localStorage.getItem('theme');
 if (currentTheme === 'dark') {
