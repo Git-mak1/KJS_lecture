@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>점심 메뉴 추천 - 오늘 뭐 먹지?</title>
+    <meta name="description" content="결정 장애 해결! AI와 무작위 알고리즘이 추천하는 오늘의 점심 메뉴를 확인해보세요. 맛있고 영양가 있는 음식을 골라드립니다.">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
+    <meta name="google-adsense-account" content="ca-pub-2484921511255700">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2484921511255700"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">🍱 점심 추천</a>
+            <ul class="nav-menu">
+                <li><a href="index.html">동물상 테스트</a></li>
+                <li><a href="#recommend-section">추천받기</a></li>
+                <li><a href="#about-lunch">메뉴 소개</a></li>
+            </ul>
+            <div class="theme-toggle">
+                <a href="index.html" class="switch-btn">🐾 동물상</a>
+                <button id="theme-btn">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" id="recommend-section">
+        <header>
+            <h1>오늘 뭐 먹지?</h1>
+            <p class="subtitle">결정 장애를 해결해드리는 점심 메뉴 추천</p>
+        </header>
+
+        <div class="recommend-section">
+            <div id="menu-image-container" class="image-frame">
+                <img id="menu-image" src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="food image" />
+                <div id="menu-placeholder" class="placeholder hidden">버튼을 눌러 추천받으세요</div>
+            </div>
+            <h2 id="menu-name">맛있는 점심 메뉴</h2>
+            <button id="recommend-btn">메뉴 추천받기</button>
+        </div>
+
+        <hr class="divider">
+
+        <div class="contact-section">
+            <h2>메뉴 추가 제안</h2>
+            <form action="https://formspree.io/f/xaqabzpw" method="POST" id="contact-form">
+                <div class="form-group">
+                    <input type="text" name="menu-suggestion" placeholder="추천하고 싶은 메뉴" required>
+                </div>
+                <button type="submit" id="submit-btn">제안하기</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="info-container" id="about-lunch">
+        <h2>왜 메뉴 선택이 힘들까요?</h2>
+        <p>현대인들은 너무나 많은 선택지 속에서 살고 있습니다. 이를 '선택의 패러독스'라고 합니다. 점심 메뉴를 고르는 사소한 고민이 스트레스가 되지 않도록, 저희가 엄선한 50가지 이상의 메뉴 중 하나를 골라드립니다.</p>
+        <p>한식, 중식, 일식, 양식은 물론 분식과 가벼운 샐러드까지 다양한 카테고리를 포함하고 있습니다. 추천된 메뉴가 마음에 들지 않는다면 다시 한 번 버튼을 눌러보세요!</p>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 점심 메뉴 추천. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#" id="privacy-link">개인정보처리방침</a>
+                <a href="index.html">동물상 테스트로 이동</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Privacy Policy Modal -->
+    <div id="privacy-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>개인정보처리방침</h2>
+            <div class="modal-body">
+                <p>본 사이트는 사용자의 개인정보를 저장하지 않습니다. 추천 알고리즘은 브라우저에서 무작위로 실행됩니다.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="lunch.js"></script>
+</body>
+</html>
